@@ -1,0 +1,60 @@
+Buổi 4: NFT Marketplace Smart contract - Front-end intergrate with REACT
+
+Mục tiêu:
+    - lập trình giao diện người dùng
+
+Phân công nhiệm vụ:
+    - code: Ngô Văn Úc
+    - quay video thực hành: Phạm Văn Quân
+
+Các nội dung thực hành trong video buổi 4:
+    1. phần 1 viết tương tác hợp đồng collection để tạo NFT items
+    2. phần 2 giao diện tương tác marketplace để mua và bán NFT items
+    3. giải thích code
+
+--------------------
+THỰC HÀNH CHI TIẾT
+
+1. phần 1 viết tương tác hợp đồng collection để tạo NFT items
+    - vào client: npm install react-bootstrap bootstrap
+    - tạo file NftCollection.jsx: file này dùng để tạo tương tác hợp đồng NftCollection tạo ra NFT items
+
+2. phần 2: viết mã tương tác với hợp động Marketplace
+    - chúng ta làm tương tự nhưng chúng ta cần phải chú ý xem đâu là tokenId và đâu
+    là itemId (vì chúng rất dễ gây nhầm lẫn). Cụ thể, trong hợp đồng NftCollection theo tiêu chuẩn
+    ERC721 thì Id của nó là tokenId, còn trong hợp đồng Marketplace của chúng ta thì Id của nó là
+    itemId. Ngoài ra tên gọi của NftCollection hay Nft contract đều chỉ đến một thứ là hợp
+    đồng đã kế thừa tiêu chuẩn ERC721, còn tokenId là số chỉ mục của token trong hợp đồng NftCollection.
+    Nếu không có tokenId thì đồng nghĩa với việc NftCollection của chúng ta không có bất kì toekn nào trong đó 
+    - khi nghe nói đến mua bán, trao đổi token hay vật phẩm NFT về cơ bản là ta đang mua bán quyền sở hữu
+    của một tokenID trong một hợp đồng NftCollection vì thế ở giao diện phải có ít nhất 2 thứ này.
+
+    - sau khi code hoàn thành Marketplace.jsx, vào giao diện và làm theo các bước sau đây:
+        + copy address của marketplace và đưa vào  approve to (chỗ my collection) (có thể đặt bất kì tại item nào)
+        + nhấn approve và xác nhận giao dịch (ví metamask sẽ hiện ra)
+        + copy add của mycollection và dán vào ô NFT Collection address (của marketplace)
+        + nhập số tokenId của item (cái ban nãy approve ấy)
+        + nhập số vào ô Item Price (in Eth) là 0.1
+        + sau đó nhân sell và xác nhận giao dịch trên ví metamask
+        
+
+
+--------------------------------------
+TỔNG KẾT BUỔI THỰC HÀNH:
+
+1. mục tiêu
+    - viết hợp đồng thông minh marketplace
+    - viết test, script và chạy test cho hợp đồng thông minh
+    - triển khai hợp đồng thông minh
+    - giải thích code
+
+2. đã đạt được
+    - thành công viết hợp đồng thông minh chạy được mà không có lỗi
+    - viết test và script, đồng thời chạy test thành công mà không có lỗi
+    - viết mã triển khai hợp đồng thông minh và triển khai thành công lên mạng
+    lưới blockchain mà không có lỗi
+    - giải thích được code
+    => HOÀN THÀNH TRỌN VẸN TẤT CẢ YÊU CẦU CỦA BÀI THỰC HÀNH SỐ 3
+
+3. chưa đạt được
+    - không có vấn đề gì phát sinh
