@@ -1,0 +1,76 @@
+<h1><b>Marketplace</b></h1>
+            <p>Address: {contracts?.Marketplace?.options?.address}</p>
+            <br />
+
+            <h2>Sell Item</h2>
+            <label htmlFor='nftCollection'>NFT Collection address</label>
+            <input
+                type="text"
+                id="nftCollection"
+                name="nftCollection"
+                className="form-control"
+                value={nftCollection}
+                onChange={event => setNftCollection(event.target.value)}
+            />
+            <br />
+
+            <label htmlFor='tokenId'>Token ID</label>
+            <input
+                type="text"
+                id="tokenId"
+                name="tokenId"
+                className="form-control"
+                value={tokenId}
+                onChange={event => setTokenId(event.target.value)}
+            />
+            <br />
+
+            <label htmlFor='price'>Item Price (in Eth)</label>
+            <input
+                type="text"
+                id="price"
+                name="price"
+                className="form-control"
+                value={price}
+                onChange={event => setPrice(event.target.value)}
+            />
+            <br />
+
+            <div className="btn btn-primary" onClick={sellNft}>Sell</div>
+
+            <div className="mt-5">
+                <h2>List Item</h2>
+                {listItem?.map(item => <div key={item.itemId} className="card p-3 my-3">
+                    <h4>#{item.itemId}: {item.name}</h4>
+                    <p>Description: {item.description}</p>
+                    <p>From Collection: {item.nftContract}</p>
+                    <p>Token ID: {item.tokenId.toString()}</p>
+                    <p>Price: {web3.utils.fromWei(item.price, 'ether')}</p>
+                    <p>Seller: {item.seller}</p>
+                    <p>Buyer: {item.buyer}</p>
+
+                    <form onSubmit={handleOnBuyNft}>
+                        <input
+                            type="text"
+                            name="itemId"
+                            defaultValue={item.itemId}
+                            hidden
+                        />
+                        <input
+                            type="text"
+                            name="price"
+                            defaultValue={item.price.toString()}
+                            hidden
+                        />
+                        <button type="submit" className="btn btn-primary mt-2">Buy</button>
+                    </form>
+
+                </div>)}
+            </div>
+        </>
+
+
+Account owner:  0x727AD2918823b13c4b391E33A167c0180F27b77d 
+contract address:    0x51005f14d0B1b3Ca206C7f15fA0257e32975E6ed      
+MyCollection deployed at:  0x51005f14d0B1b3Ca206C7f15fA0257e32975E6ed
+Marketplace deployed at:  0x5c63A3e92B6196Ce185561DBAACf29b60F6A4Df3

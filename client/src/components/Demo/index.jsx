@@ -5,13 +5,10 @@ function Demo() {
 
   return (
     <div className="row">
-        <div className="col-5">
-          <Nftcollection/>
-        </div>
+      {/* <Nftcollection /> */}
 
-      <div className="col-7">
-        <Marketplace/>
-      </div>
+      <Marketplace />
+
     </div>
   );
 }
